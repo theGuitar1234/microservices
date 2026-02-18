@@ -18,8 +18,8 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(requests -> requests
                 .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/db-console-user/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/users/**").hasAnyAuthority("SCOPE_read:invoices", "ROLE_USER")
-                .requestMatchers(HttpMethod.POST, "/users/**").hasAuthority("SCOPE_write:invoices")
+                // .requestMatchers(HttpMethod.GET, "/users/**").hasAnyAuthority("SCOPE_read:invoices", "ROLE_USER")
+                // .requestMatchers(HttpMethod.POST, "/users/**").hasAuthority("SCOPE_write:invoices")
                 .requestMatchers(
                     "/swagger-ui.html",
                     "/swagger-ui/**",

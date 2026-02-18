@@ -30,11 +30,12 @@ public class UserService {
         return UserMapper.toUserDTO(user);
     }
 
-    public void createNewUser(UserDTO userDTO) {
+    public UserDTO createNewUser(String firstname) {
         User user = new User();
-        user.setFirstname(userDTO.getFirstNameString());
+        user.setFirstname(firstname);
         user.setCreditBalance(new BigDecimal(0));
         saveUser(user);
+        return new UserDTO(user.getUserId(), user.getFirstname());
     }
 
     public void deposit(long userId, BigDecimal amount) throws InvalidBalanceException {
